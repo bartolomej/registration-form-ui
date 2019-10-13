@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="registration">
+    <div id="slide-show">
+        <img src="assets/ideas-graphics.png" alt="education">
+    </div>
+    <div id="form">
+        <div>
+            <h1>Welcome</h1>
+            <div id="inputs-container">
+                <div class="input">
+                    <label for="password">PASSWORD</label>
+                    <input id="password" type="text" placeholder="Input your password...">
+                </div>
+                <div class="input">
+                    <label for="email">EMAIL</label>
+                    <input id="email" type="email" placeholder="Input your email...">
+                </div>
+            </div>
+            <button id="submit">Sign in</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('#form').animate({ left: '250px' });
+    $("#submit").hover(function() {
+      $(this).animate({backgroundColor: 'yellow'}, 1000);
+    }, function() {
+      $(this).animate({backgroundColor: '#333'}, 1000);
+    });
+</script>
+</body>
+</html>
