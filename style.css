@@ -13,7 +13,7 @@
     --color3: rgba(238, 66, 102, 1);
     --color4: rgba(109, 174, 219, 1);
     --color5: rgba(40, 146, 215, 1);
-    --color6: rgb(104, 106, 108);
+    --color6: rgba(139, 141, 143, 0.5);
 }
 
 #container {
@@ -35,12 +35,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background-color: var(--color3);
-    animation: 2s cubic-bezier(0.63, 0, 0.46, 1.05) 0s 1 slideInFromLeft;
+    animation: 2s cubic-bezier(0.63, 0, 0.59, 0.96) 0s 1 slideInFromLeft;
 }
 
 #slide-show img {
-    width: 70%;
+    width: 100%;
+}
+
+#slide-show p {
+    letter-spacing: 1px;
 }
 
 @keyframes slideInFromLeft {
@@ -70,7 +75,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color1);
-    animation: 2s cubic-bezier(0.63, 0, 0.46, 1.05) 0s 1 slideInFromRight;
+    animation: 2s cubic-bezier(0.63, 0, 0.59, 0.96) 0s 1 slide-from-right;
 }
 
 form {
@@ -78,6 +83,7 @@ form {
 }
 
 h1 {
+    font-size: 2.3em;
     margin: 30px 0;
 }
 
@@ -87,7 +93,7 @@ h1 {
     flex-direction: column;
 }
 
-@keyframes slideInFromRight {
+@keyframes slide-from-right {
     0% {
         transform: translateX(+200%);
     }
@@ -107,9 +113,9 @@ h1 {
  *   INPUT STYLES   *
  ********************/
 
-.inputComponent {
+.input-component {
     display: flex;
-    margin: 10px 0;
+    margin: 15px 0;
     flex-direction: column;
 }
 
@@ -127,6 +133,15 @@ label {
     padding: 12px 2px;
     outline: none;
     margin-top: 5px;
+    max-width: 300px;
+    letter-spacing: 1px;
+    transition: 0.2s ease all;
+    color: var(--color6);
+    font-size: 12px;
+}
+
+#inputs-container input:focus {
+    border-bottom-color: var(--color3);
 }
 
 
@@ -150,19 +165,138 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    color: white;
-    background: var(--color3)
+    color: var(--color3);
+    background: white
 }
 
 
-/************************
- *   ANIMATION STYLES   *
- ************************/
+/*********************
+ *   SVG ANIMATION   *
+ *********************/
 
-.floatingImage {
-    position: absolute;
+/* FIRST LAMP */
+
+#path158 {
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path148 {
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path146 {
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+/* SECOND LAMP */
+
+#path142 {
+    animation: slide-up-down 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path154 {
+    animation: slide-up-down 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path156 {
+    animation: slide-up-down 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+/* THIRD LAMP */
+
+#path150 {
+    transform: translateY(500px);
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path152 {
+    transform: translateY(500px);
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+#path144 {
+    transform: translateY(500px);
+    animation: slide-down-up 3s ease-in-out .1s infinite;
+    transform-origin: center;
+}
+
+/* LAMP ANIMATION KEYFRAMES */
+
+@keyframes slide-down-up {
+    0% {
+        transform: translateY(-30%);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-30%);
+    }
+}
+
+@keyframes slide-up-down {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/********************
+ *   IMAGE STYLES   *
+ ********************/
+
+#top-right-graphic {
+    display: none;
+    z-index: 100;
     width: 100px;
+    animation: 2s cubic-bezier(0.63, 0, 0.59, 0.96) 0s 1 slide-from-right;
+}
+
+#animation-wrapper {
+    z-index: 100;
+    position: absolute;
+    right: 30px;
+    top: 30px;
     transform: rotate(20deg);
-    top: 50px;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #top-right-graphic {
+        display: unset;
+    }
+}
+
+
+/**********************
+ *   CREDITS STYLES   *
+ **********************/
+
+#credits {
+    position: absolute;
+    bottom: 0;
     left: 30px;
 }
