@@ -5,15 +5,20 @@
     margin: 0;
     color: white;
     font-family: 'Raleway', sans-serif;
+    letter-spacing: 2px;
 }
+
+body {
+    background-color: var(--color4);
+}
+
+/** COLOR CONSTANTS **/
 
 :root {
     --color1: rgba(45, 49, 66, 1);
     --color2: rgba(236, 220, 176, 1);
     --color3: rgba(238, 66, 102, 1);
-    --color4: rgba(109, 174, 219, 1);
-    --color5: rgba(40, 146, 215, 1);
-    --color6: rgba(139, 141, 143, 0.5);
+    --color4: rgba(139, 141, 143, 0.5);
 }
 
 #container {
@@ -45,7 +50,8 @@
 }
 
 #slide-show p {
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 
 @keyframes slideInFromLeft {
@@ -123,11 +129,12 @@ label {
     display: block;
     margin: 2px 2px;
     font-size: 13px;
+    color: white;
 }
 
 #inputs-container input {
     border: none;
-    border-bottom: 2px solid var(--color6);
+    border-bottom: 2px solid var(--color4);
     background-color: var(--color1);
     width: 100%;
     padding: 12px 2px;
@@ -136,7 +143,8 @@ label {
     max-width: 300px;
     letter-spacing: 1px;
     transition: 0.2s ease all;
-    color: var(--color6);
+    color: var(--color3);
+    font-weight: bold;
     font-size: 12px;
 }
 
@@ -167,6 +175,12 @@ input[type=submit] {
 input[type=submit]:hover {
     color: var(--color3);
     background: white
+}
+
+@media screen and (max-width: 600px) {
+    input[type=submit] {
+        width: 100%;
+    }
 }
 
 
