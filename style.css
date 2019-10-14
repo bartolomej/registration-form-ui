@@ -289,14 +289,3 @@ input[type=submit]:hover {
         display: unset;
     }
 }
-
-
-/**********************
- *   CREDITS STYLES   *
- **********************/
-
-#credits {
-    position: absolute;
-    bottom: 0;
-    left: 30px;
-}
