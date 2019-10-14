@@ -3,10 +3,20 @@
 * {
     padding: 0;
     margin: 0;
+    color: white;
     font-family: 'Raleway', sans-serif;
 }
 
-#registration {
+:root {
+    --color1: rgba(45, 49, 66, 1);
+    --color2: rgba(236, 220, 176, 1);
+    --color3: rgba(238, 66, 102, 1);
+    --color4: rgba(109, 174, 219, 1);
+    --color5: rgba(40, 146, 215, 1);
+    --color6: rgb(104, 106, 108);
+}
+
+#container {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -25,11 +35,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: var(--color3);
+    animation: 2s cubic-bezier(0.63, 0, 0.46, 1.05) 0s 1 slideInFromLeft;
 }
 
 #slide-show img {
     width: 70%;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #slide-show {
+        display: none;
+    }
 }
 
 
@@ -43,10 +69,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fde184;
+    background-color: var(--color1);
+    animation: 2s cubic-bezier(0.63, 0, 0.46, 1.05) 0s 1 slideInFromRight;
 }
 
-#form div {
+form {
     flex: 0.5;
 }
 
@@ -60,12 +87,27 @@ h1 {
     flex-direction: column;
 }
 
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(+200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        flex: 0.8;
+    }
+}
+
 
 /********************
  *   INPUT STYLES   *
  ********************/
 
-.input {
+.inputComponent {
     display: flex;
     margin: 10px 0;
     flex-direction: column;
@@ -73,14 +115,16 @@ h1 {
 
 label {
     display: block;
-    margin: 5px 2px;
+    margin: 2px 2px;
+    font-size: 13px;
 }
 
 #inputs-container input {
     border: none;
+    border-bottom: 2px solid var(--color6);
+    background-color: var(--color1);
     width: 100%;
-    padding: 12px 10px;
-    border-radius: 15px;
+    padding: 12px 2px;
     outline: none;
     margin-top: 5px;
 }
@@ -90,10 +134,35 @@ label {
  *   BUTTON STYLES   *
  *********************/
 
-button {
+input[type=submit] {
     padding: 12px 10px;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 100px;
-    background-color: white;
     margin: 20px 0;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    border: none;
+    letter-spacing: 1px;
+    background-color: var(--color3);
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+input[type=submit]:hover {
+    color: white;
+    background: var(--color3)
+}
+
+
+/************************
+ *   ANIMATION STYLES   *
+ ************************/
+
+.floatingImage {
+    position: absolute;
+    width: 100px;
+    transform: rotate(20deg);
+    top: 50px;
+    left: 30px;
 }
