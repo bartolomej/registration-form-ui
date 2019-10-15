@@ -63,7 +63,7 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     #slide-show {
         display: none;
     }
@@ -150,6 +150,12 @@ label {
 
 #inputs-container input:focus {
     border-bottom-color: var(--color3);
+}
+
+@media screen and (max-width: 600px) {
+    #inputs-container input {
+        max-width: unset;
+    }
 }
 
 
